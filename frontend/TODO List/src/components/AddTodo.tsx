@@ -13,6 +13,7 @@ interface Todo {
 
 const AddTodo: React.FC<AddTodoProps> = ({ onAddTodo }) => {
   const [title, setTitle] = useState('');
+  
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
