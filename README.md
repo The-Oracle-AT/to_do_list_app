@@ -7,6 +7,6 @@ This folder contains all the code used.
   4. SQLite - the database.
 
 Frontend.
- 1. Reaqt - frontend language for modern webdev.
+ 1. React - frontend language for modern webdev.
  2. TypeScript - JS extension for type safety.
  3. Axios - JS library for making HTTP requests from a web browser.
