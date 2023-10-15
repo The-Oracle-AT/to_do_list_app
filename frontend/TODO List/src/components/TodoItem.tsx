@@ -26,14 +26,20 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, onUpdateTodo, onDeleteTodo })
   };
 
   // const handleComplete = () => {
-  //   setCompleted(todo.completed = true);
+  //   const newCompleted = true
+  //   setCompleted(true);
+  //   onUpdateTodo(todo.id, todo.title, newCompleted);
   // }
 
   return (
     <>
+    
       {editing ? (
         <>
-          <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+          <input type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)
+          } />
           <button onClick={handleUpdate}>Save</button>
         </>
       ) : (

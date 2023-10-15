@@ -26,7 +26,10 @@ const AddTodo: React.FC<AddTodoProps> = ({ onAddTodo }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" placeholder="Title" value={title} onChange={(event) => setTitle(event.target.value)} />
+      <input type="text"
+      placeholder="Title"
+      name='to-do-title'
+      value={title} onChange={(event) => setTitle(event.target.value)} />
       <button type="submit">Add Todo</button>
     </form>
   );

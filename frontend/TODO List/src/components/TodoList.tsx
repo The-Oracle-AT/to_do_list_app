@@ -40,7 +40,7 @@ const TodoList: React.FC = () => {
       setTodos(data); //save to UI
 
       // save to local storage
-      localStorage.setItem('todo_list_data', JSON.stringify(data));//convert to json string
+      localStorage.setItem('todo_list_data', JSON.stringify(data));//convert to json
 
     } catch (error) {
       console.log('Failed to GET item', error);
@@ -71,7 +71,7 @@ const TodoList: React.FC = () => {
     try {
       const response = await axios.put(`${API_URL}/${id}`, { title: newTitle, completed: oldTitleStatus});
       const updatedTodo = response.data;
-      const newData = updatedTodo.map((todo:any) => (todo.id === updatedTodo.id ? updatedTodo : todo));
+      const newData = todos.map((todo:any) => (todo.id === updatedTodo.id ? updatedTodo : todo));
       
       setTodos(newData);
       localStorage.setItem('todo_list_data', JSON.stringify(newData));
