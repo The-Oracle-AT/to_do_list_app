@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 interface TodoItemProps {
     todo: {
-        id: number;
+        id: any;
         title: string;
         completed: boolean;
     }
@@ -30,7 +30,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, onUpdateTodo, onDeleteTodo })
   }
 
   return (
-    <li>
+    <>
     <input type='checkbox' onChange={handleComplete} />
       {editing ? (
         <>
@@ -44,7 +44,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, onUpdateTodo, onDeleteTodo })
           <button onClick={handleDelete}>Delete</button>
         </>
       )}
-    </li>
+    </>
   );
 };
 
