@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 interface TodoItemProps {
     todo: {
-        id: any;
+        id: number;
         title: string;
         completed: boolean;
     }
-    onUpdateTodo: (id: number, title: string) => void;
+    onUpdateTodo: (id: number, title: string, completed: boolean) => void;
     onDeleteTodo: (id: number) => void;
 }
-
+ 
 const TodoItem: React.FC<TodoItemProps> = ({ todo, onUpdateTodo, onDeleteTodo }) => {
   const [editing, setEditing] = useState(false);
   const [title, setTitle] = useState(todo.title);
@@ -16,7 +16,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, onUpdateTodo, onDeleteTodo })
 
   const handleUpdate = () => {
     if (title.trim()) {
-      onUpdateTodo(todo.id, title);
+      onUpdateTodo(todo.id, title, todo.completed);
       setEditing(false);
     }
   };
@@ -26,12 +26,12 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, onUpdateTodo, onDeleteTodo })
   };
 
   const handleComplete = () => {
-    setCompleted(todo.completed = !completed);
+    setCompleted(todo.completed = true);
   }
 
   return (
     <>
-    <input type='checkbox' onChange={handleComplete} />
+    <input type='checkbox' checked={completed} onChange={handleComplete} />
       {editing ? (
         <>
           <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />

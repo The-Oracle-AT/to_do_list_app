@@ -24,7 +24,6 @@ const TodoList: React.FC = () => {
     try {
       const response = await axios.get(API_URL);
       const data = response.data.todo_items;
-      console.log(data);
       //Unpack the json response
       try {
         const IDArray = data.map((item:any) => item.id);
@@ -55,9 +54,12 @@ const TodoList: React.FC = () => {
   };
 
   const handleUpdateTodo = async (id: number, newTitle: string) => {
+    const oldTitleStatus = completeds[IDs.indexOf(id)]
     try {
-      const response = await axios.put(`${API_URL}/${id}`, { title: newTitle });
+      const response = await axios.put(`${API_URL}/${id}`, { title: newTitle, completed: oldTitleStatus});
+      console.log(response.data);
       const updatedTodo = response.data;
+      console.log(updatedTodo);
       setTodos(todos.map((todo) => (todo.id === updatedTodo.id ? updatedTodo : todo)));
       fetchTodos();//after updating fetch data
     } catch (error) {
