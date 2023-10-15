@@ -12,7 +12,7 @@ interface TodoItemProps {
 const TodoItem: React.FC<TodoItemProps> = ({ todo, onUpdateTodo, onDeleteTodo }) => {
   const [editing, setEditing] = useState(false);
   const [title, setTitle] = useState(todo.title);
-  const [completed, setCompleted] = useState(todo.completed);
+  // const [completed, setCompleted] = useState(todo.completed);
 
   const handleUpdate = () => {
     if (title.trim()) {
@@ -25,13 +25,12 @@ const TodoItem: React.FC<TodoItemProps> = ({ todo, onUpdateTodo, onDeleteTodo })
     onDeleteTodo(todo.id);
   };
 
-  const handleComplete = () => {
-    setCompleted(todo.completed = true);
-  }
+  // const handleComplete = () => {
+  //   setCompleted(todo.completed = true);
+  // }
 
   return (
     <>
-    <input type='checkbox' checked={completed} onChange={handleComplete} />
       {editing ? (
         <>
           <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
